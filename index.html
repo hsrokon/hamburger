@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .menu-hidden {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+
+        .menu-visible {
+            max-height: 500px; /* Adjust this value if needed */
+            transition: max-height 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="mt-12 w-10/12 mx-auto">
+    
+    <header class="flex justify-between items-center font-bold">
+        <div>
+            <a href=""><h1 class="text-2xl lg:text-3xl">Influencer Products</h1></a>
+        </div>
+        <div class="hidden md:flex text-xs md:text-base justify-between items-center gap-3 lg:gap-4 mt-1">
+            <a href=""><p>Home</p></a>
+            <a href=""><p>Products</p></a>
+            <a href=""><p>Sign Up</p></a>
+            <a href=""><p>Log In</p></a>
+            <a href=""><img  class="w-4 md:w-6" src="search_black.jpg" alt="Search"></a>
+            <a href=""><img  class="w-4 md:w-6" src="cart_black.jpg" alt="Cart"></a>
+        </div>
+
+        <!-- Hamburger Icon -->
+        <div class="md:hidden flex items-center">
+            <button id="hamburger" class="focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="menu-hidden md:hidden bg-slate-100 flex flex-col text-base gap-4 mt-4">
+        <a href=""><p>Home</p></a>
+        <a href=""><p>Products</p></a>
+        <a href=""><p>Sign Up</p></a>
+        <a href=""><p>Log In</p></a>
+        <a href=""><img class="w-6" src="search_black.jpg" alt="Search"></a>
+        <a href=""><img class="w-6" src="cart_black.jpg" alt="Cart"></a>
+    </div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('menu-visible');
+            mobileMenu.classList.toggle('menu-hidden');
+        });
+    </script>
+
+</body>
+</html>
